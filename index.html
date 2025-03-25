@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div>
+           
+            <div>
+                <label for="">Mathmark :</label>
+                <input type="number" id="math" placeholder="enter math mark"><br><br>
+                <label for="">Physics mark :</label>
+                <input type="number" id="Physics" placeholder="enter physics mark"><br><br>
+                <label for="">Chemistry mark :</label>
+                <input type="number" id="chemistry" placeholder="enter chemistry mark"><br><br>
+                <button id="Calculate" onclick="cutoff(event)">Calculate</button><br>
+                
+                <h4 id="result">
+                    CUTOFF MARK IS:
+                </h4>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        var maths = document.getElementById("math")
+        var physics = document.getElementById("Physics")
+        var chemistry = document.getElementById("chemistry")
+        var Calculate = document.getElementById("Calculate")
+        var result=document.getElementById("result")
+
+        function cutoff(event){
+            
+            var ans =Number(math.value) +Number(physics.value/2) + Number(chemistry.value/2) 
+            result.textContent="CUTOFF MARK IS: "+ ans
+
+        }
+    </script>
+</body>
+
+</html>
