@@ -4,27 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>cutoff-callculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: black;">
     <main>
-        <div>
-           
-            <div>
-                <label for="">Mathmark :</label>
-                <input type="number" id="math" placeholder="enter math mark"><br><br>
+        <div
+            style=" background-color: white; width: 50%;  padding: 30px; display: flex ;  flex-direction: column ; gap: 20px;">
+            <div
+                style="display: flex ;  flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap ; flex-grow: 1 ;">
+                <label for="">Maths mark :</label>
+                <input type="number" id="math" placeholder="enter math mark" required
+                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+            </div>
+            <div
+                style="display: flex ;  flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap; flex-grow: 1;">
                 <label for="">Physics mark :</label>
-                <input type="number" id="Physics" placeholder="enter physics mark"><br><br>
+                <input type="number" id="Physics" placeholder="enter physics mark" required
+                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+            </div>
+            <div
+                style="display: flex ; flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap; flex-grow: 1;">
                 <label for="">Chemistry mark :</label>
-                <input type="number" id="chemistry" placeholder="enter chemistry mark"><br><br>
-                <button id="Calculate" onclick="cutoff(event)">Calculate</button><br>
-                
-                <h4 id="result">
+                <input type="number" id="chemistry" placeholder="enter chemistry mark" required
+                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+            </div><br>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <button id="Calculate" onclick="cutoff(event)"
+                    style="border: 3px solid blue; border-radius: 9px; padding: 10px; ">Calculate</button><br>
+
+                <h4 id="result" style="color: rgb(81, 45, 226);">
                     CUTOFF MARK IS:
                 </h4>
             </div>
+
+
         </div>
+
 
     </main>
     <script>
@@ -32,12 +71,12 @@
         var physics = document.getElementById("Physics")
         var chemistry = document.getElementById("chemistry")
         var Calculate = document.getElementById("Calculate")
-        var result=document.getElementById("result")
+        var result = document.getElementById("result")
 
-        function cutoff(event){
-            
-            var ans =Number(math.value) +Number(physics.value/2) + Number(chemistry.value/2) 
-            result.textContent="CUTOFF MARK IS: "+ ans
+        function cutoff(event) {
+
+            var ans = Number(math.value) + Number(physics.value / 2) + Number(chemistry.value / 2)
+            result.textContent = "CUTOFF MARK IS: " + ans
 
         }
     </script>
