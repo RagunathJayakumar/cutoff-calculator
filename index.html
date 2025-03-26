@@ -10,47 +10,28 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
 
-        main {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-        }
     </style>
 </head>
 
-<body style="background-color: black;">
+<body>
     <main>
-        <div
-            style=" background-color: white; width: 50%;  padding: 30px; display: flex ;  flex-direction: column ; gap: 20px;">
-            <div
-                style="display: flex ;  flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap ; flex-grow: 1 ;">
+        <h1 class="heading">CUTOFF-CALCULATOR</h1>
+        <div class="calculater-container">
+            <div class="calculater-container_small">
                 <label for="">Maths mark :</label>
-                <input type="number" id="math" placeholder="enter math mark" required
-                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+                <input type="number" id="math" placeholder="enter math mark" required class="calculate-input">
+                <span id="err"></span>
             </div>
-            <div
-                style="display: flex ;  flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap; flex-grow: 1;">
+            <div class="calculater-container_small">
                 <label for="">Physics mark :</label>
-                <input type="number" id="Physics" placeholder="enter physics mark" required
-                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+                <input type="number" id="Physics" placeholder="enter physics mark" required class="calculate-input">
             </div>
-            <div
-                style="display: flex ; flex-direction: column; gap: 5px; justify-content: space-between; align-items: center; flex-wrap: wrap; flex-grow: 1;">
+            <div class="calculater-container_small">
                 <label for="">Chemistry mark :</label>
-                <input type="number" id="chemistry" placeholder="enter chemistry mark" required
-                    style="outline: rgb(64, 123, 252);border-radius: 8px; border: solid rgb(70, 139, 228) 2px; padding: 10px;">
+                <input type="number" id="chemistry" placeholder="enter chemistry mark" required class="calculate-input">
             </div><br>
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <button id="Calculate" onclick="cutoff(event)"
@@ -60,11 +41,7 @@
                     CUTOFF MARK IS:
                 </h4>
             </div>
-
-
         </div>
-
-
     </main>
     <script>
         var maths = document.getElementById("math")
@@ -72,11 +49,45 @@
         var chemistry = document.getElementById("chemistry")
         var Calculate = document.getElementById("Calculate")
         var result = document.getElementById("result")
+        var mistake = document.getElementById("err")
 
         function cutoff(event) {
+            
+            if (Number(math.value)>100) {
+                mistake.textContent = "pls enter the mark between 35-100"
+            }
 
-            var ans = Number(math.value) + Number(physics.value / 2) + Number(chemistry.value / 2)
-            result.textContent = "CUTOFF MARK IS: " + ans
+
+
+            if (Number(math.value) < 35) {
+                mistake.textContent = "pls make sure your mark is above 35"
+            }
+            else if (Number(math.value) > 35) {
+                mistake.textContent = ""
+            }
+
+
+
+            if (Number(math.value) > 100) {
+                result.textContent = "Check your marks are correct"
+            }
+            else if (Number(physics.value) < 35) {
+                result.textContent = "Cheack Your Physics mark "
+            }
+            else if (Number(physics.value) > 100) {
+                result.textContent = "Cheack Your Physics mark "
+            }
+            else if (Number(chemistry.value) < 35) {
+                result.textContent = "Cheack Your Chemistry mark "
+            }
+
+            else if (Number(chemistry.value) > 100) {
+                result.textContent = "Cheack Your Chemistry mark "
+            }
+            else {
+                var ans = Number(math.value) + Number(physics.value / 2) + Number(chemistry.value / 2)
+                result.textContent = "CUTOFF MARK IS: " + ans
+            }
 
         }
     </script>
